@@ -9,6 +9,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import sys
@@ -37,7 +38,8 @@ def check_availability(costco_dict, timeout, id_name):
 
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Firefox(options=options)
+    profile = FirefoxProfile(profile_directory='/Users/hydeb/Library/Application Support/Firefox/Profiles/k8merexz.selenium')
+    driver = webdriver.Firefox(firefox_profile=profile, options=options)
     driver.set_window_size(1680, 1050)
     #driver.maximize_window()
     driver.get(costco_url)
@@ -94,14 +96,12 @@ def has_quantity_input(driver, timeout, product):
         )
     except TimeoutException:
         print(f'could not find price box. {product} likely sold out')
-        sys.exit(1)
         return False
     else:
         try:
             price_val_parent = your_price.find_elements_by_class_name('pull-right')
         except NoSuchElementException:
             print('could not find parent of price box')
-            sys.exit(1)
             return False
         else:
             try:
