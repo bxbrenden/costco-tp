@@ -1,11 +1,11 @@
-https://www.costco.com/cottonelle-ultra-comfort-care-toilet-paper%2c-36-rolls.product.100465152.html
-https://www.costco.com/quilted-northern-ultra-plush-bath-tissue-3-ply-white%2c-30-count.product.100329166.html
-https://www.costco.com/kirkland-signature-bath-tissue%2c-2-ply%2c-425-sheets%2c-30-rolls.product.100142093.html
-https://www.costco.com/kirkland-signature-ultra-soft-bath-tissue%2c-36-rolls.product.100284187.html
-https://www.costco.com/kleenex-cottonelle-bath-tissue-rolls-2-ply%2c-white%2c-60-count.product.11512334.html
-https://www.costco.com/windsoft-bath-tissue-2-ply-500-sheets%2c-96-rolls.product.11128081.html
-https://www.costco.com/scott-jrt-jr.-jumbo-roll-bath-tissue-2-ply-white%2c-1%2c000'-per-roll%2c-12-count.product.11526605.html
-https://www.costco.com/kleenex-facial-tissue-convenience-case-2-ply%2c-white%2c-12-count.product.11129313.html
-https://www.costco.com/kleenex-boutique-tissue-2-ply-white-3695ct.product.11152579.html
-https://www.costco.com/charmin-ultra-soft-bath-tissue%2c-2-ply%2c-214-sheets%2c-30-rolls.product.100569654.html
-https://www.costco.com/charmin-ultra-strong-bath-tissue%2c-2-ply%2c-231-sheets%2c-30-rolls.product.100422112.html
+cottonelle  https://www.costco.com/cottonelle-ultra-comfort-care-toilet-paper%2c-36-rolls.product.100465152.html
+quilted-northern  https://www.costco.com/quilted-northern-ultra-plush-bath-tissue-3-ply-white%2c-30-count.product.100329166.html
+kirkland-signature  https://www.costco.com/kirkland-signature-bath-tissue%2c-2-ply%2c-425-sheets%2c-30-rolls.product.100142093.html
+kirkland-signature-ultrasoft  https://www.costco.com/kirkland-signature-ultra-soft-bath-tissue%2c-36-rolls.product.100284187.html
+kleenex-TP  https://www.costco.com/kleenex-cottonelle-bath-tissue-rolls-2-ply%2c-white%2c-60-count.product.11512334.html
+windsoft  https://www.costco.com/windsoft-bath-tissue-2-ply-500-sheets%2c-96-rolls.product.11128081.html
+scott  https://www.costco.com/scott-jrt-jr.-jumbo-roll-bath-tissue-2-ply-white%2c-1%2c000'-per-roll%2c-12-count.product.11526605.html
+kleenex-tissue1  https://www.costco.com/kleenex-facial-tissue-convenience-case-2-ply%2c-white%2c-12-count.product.11129313.html
+kleenex-tissue2  https://www.costco.com/kleenex-boutique-tissue-2-ply-white-3695ct.product.11152579.html
+charmin-ultrasoft  https://www.costco.com/charmin-ultra-soft-bath-tissue%2c-2-ply%2c-214-sheets%2c-30-rolls.product.100569654.html
+charmin-ultrastrong  https://www.costco.com/charmin-ultra-strong-bath-tissue%2c-2-ply%2c-231-sheets%2c-30-rolls.product.100422112.html
