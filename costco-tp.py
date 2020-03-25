@@ -48,7 +48,7 @@ def check_availability(costco_dict, timeout, id_name):
     #driver.maximize_window()
     driver.get(costco_url)
     set_postal_code(driver, timeout, item_name)
-    time.sleep(60)
+    time.sleep(65)
     check_cart_button(driver, timeout, item_name, id_name)
     driver.close()
 
