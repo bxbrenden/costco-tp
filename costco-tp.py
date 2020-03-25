@@ -38,14 +38,11 @@ def check_availability(costco_dict, timeout, id_name):
     costco_url = list(costco_dict.values())[0]
     item_name = list(costco_dict.keys())[0]
 
-#    options = Options()
-#    options.add_argument('--headless')
-#    profile = FirefoxProfile(profile_directory='/Users/hydeb/Library/Application Support/Firefox/Profiles/k8merexz.selenium')
-#    driver = webdriver.Firefox(firefox_profile=profile, options=options)
-
-    driver = webdriver.Firefox()
+    options = Options()
+    options.add_argument('--headless')
+    profile = FirefoxProfile(profile_directory='/Users/hydeb/Library/Application Support/Firefox/Profiles/Selenium')
+    driver = webdriver.Firefox(firefox_profile=profile, options=options)
     driver.set_window_size(1680, 1050)
-    #driver.maximize_window()
     driver.get(costco_url)
     set_postal_code(driver, timeout, item_name)
     time.sleep(65)
