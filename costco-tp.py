@@ -48,7 +48,7 @@ def check_availability(costco_dict, timeout, id_name):
     #driver.maximize_window()
     driver.get(costco_url)
     set_postal_code(driver, timeout)
-    time.sleep(40)
+    time.sleep(45)
     check_cart_button(driver, timeout, item_description, id_name)
 
 def check_cart_button(driver, timeout, item_description, id_name):
@@ -59,9 +59,18 @@ def check_cart_button(driver, timeout, item_description, id_name):
     except TimeoutException:
         logging.error(f'checkout button was not visible within the {timeout} second timout')
     else:
-        stock_status = add_to_cart_button.get_attribute('value')
-        stock_message = f'{item_description}: {stock_status}'
-        print(stock_message)
+        try:
+            cart_btn_visible = WebDriverWait(driver, 6).until(
+                EC.visibility_of_element_located((By.ID, 'add-to-cart'))
+            )
+        except TimeoutException:
+            stock_status = 'Out of Stock'
+            stock_message = f'{item_description}: {stock_status}'
+            print(stock_message)
+        else:
+            stock_status = add_to_cart_button.get_attribute('value')
+            stock_message = f'{item_description}: {stock_status}'
+            print(stock_message)
 
 
 def set_postal_code(driver, timeout):
