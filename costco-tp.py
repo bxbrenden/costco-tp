@@ -28,15 +28,15 @@ def get_tp_urls(tp_file):
         tp_urls = tp_urls.split('\n')
         for line in tp_urls:
             spl = line.split('  ')
-            descrip = spl[0]
+            item_name = spl[0]
             url = spl[1]
-            tp_dicts.append({descrip: url})
+            tp_dicts.append({item_name: url})
     return tp_dicts
 
 
 def check_availability(costco_dict, timeout, id_name):
     costco_url = list(costco_dict.values())[0]
-    item_description = list(costco_dict.keys())[0]
+    item_name = list(costco_dict.keys())[0]
 
 #    options = Options()
 #    options.add_argument('--headless')
@@ -47,11 +47,12 @@ def check_availability(costco_dict, timeout, id_name):
     driver.set_window_size(1680, 1050)
     #driver.maximize_window()
     driver.get(costco_url)
-    set_postal_code(driver, timeout)
-    time.sleep(45)
-    check_cart_button(driver, timeout, item_description, id_name)
+    set_postal_code(driver, timeout, item_name)
+    time.sleep(60)
+    check_cart_button(driver, timeout, item_name, id_name)
+    driver.close()
 
-def check_cart_button(driver, timeout, item_description, id_name):
+def check_cart_button(driver, timeout, item_name, id_name):
     try:
         add_to_cart_button = WebDriverWait(driver, timeout).until(
             EC.presence_of_element_located((By.ID, id_name))
@@ -65,21 +66,21 @@ def check_cart_button(driver, timeout, item_description, id_name):
             )
         except TimeoutException:
             stock_status = 'Out of Stock'
-            stock_message = f'{item_description}: {stock_status}'
+            stock_message = f'{item_name}: {stock_status}'
             print(stock_message)
         else:
             stock_status = add_to_cart_button.get_attribute('value')
-            stock_message = f'{item_description}: {stock_status}'
+            stock_message = f'{item_name}: {stock_status}'
             print(stock_message)
 
 
-def set_postal_code(driver, timeout):
+def set_postal_code(driver, timeout, item_name):
     try:
         label = WebDriverWait(driver, timeout).until(
             EC.visibility_of_element_located((By.ID, 'delivery-postal-label'))
         )
     except TimeoutException:
-        print('postal code setter was not visible within timeout')
+        print(f'{item_name}: postal code setter was not visible within timeout')
     else:
         actions = ActionChains(driver)
         actions.move_to_element(label)
