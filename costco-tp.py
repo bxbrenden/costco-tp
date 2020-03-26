@@ -10,6 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import sys
@@ -39,7 +40,8 @@ def check_availability(costco_dict, timeout, id_name):
 
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Firefox(options=options)
+    profile = FirefoxProfile(profile_directory='/Users/hydeb/Library/Application Support/Firefox/Profiles/Selenium')
+    driver = webdriver.Firefox(firefox_profile=profile, options=options)
     driver.set_window_size(1680, 1050)
     driver.get(costco_url)
     set_postal_code(driver, timeout, item_name)
