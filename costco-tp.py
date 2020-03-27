@@ -10,7 +10,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
-#from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import sys
@@ -37,10 +36,10 @@ def get_tp_urls(tp_file):
 def check_availability(costco_dict, timeout, id_name):
     costco_url = list(costco_dict.values())[0]
     item_name = list(costco_dict.keys())[0]
+    print(f'Searching for {item_name}. This will take upwards of 1 minute...')
 
     options = Options()
     options.add_argument('--headless')
-#    profile = FirefoxProfile(profile_directory='/Users/hydeb/Library/Application Support/Firefox/Profiles/Selenium')
     driver = webdriver.Firefox(options=options)
     driver.set_window_size(1680, 1050)
     driver.get(costco_url)
@@ -95,10 +94,6 @@ def set_postal_code(driver, timeout, item_name):
                 print('driver could not be clicked though it was labeled as clickable')
             else:
                 popover_inputs = popover.find_elements_by_tag_name('input')
-                #for index, inp in enumerate(popover_inputs):
-                #    attr = inp.get_attribute('type')
-                #    if attr.lower().strip() == 'submit':
-                #        print(f'The index of the submit input in popover_inputs is {index}')
                 try:
                     popover_inputs[0].send_keys('97124')
                 except ElementNotInteractableException:
@@ -130,37 +125,6 @@ def set_postal_code(driver, timeout, item_name):
                                         sure_btn.click()
                                     except ElementNotInteractableException:
                                         pass
-
-
-
-def has_quantity_input(driver, timeout, product):
-    '''returns True if there is a box for specifying item quantity and False otherwise.
-       This is used to validate a few false positives that say 'Add to Cart' even when out of stock.'''
-    try:
-        your_price = WebDriverWait(driver, timeout).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, 'your-price'))
-        )
-    except TimeoutException:
-        print(f'could not find price box. {product} likely sold out')
-        return False
-    else:
-        try:
-            price_val_parent = your_price.find_elements_by_class_name('pull-right')
-        except NoSuchElementException:
-            print('could not find parent of price box')
-            return False
-        else:
-            try:
-                price_val = price_val_parent.find_elements_by_class_name('value')
-            except NoSuchElementException:
-                print('could not find price_val')
-                return False
-            else:
-                price = price_val.text
-                with open('PRICE.txt', 'a') as pr:
-                    pr.write(product + ": " + price)
-                return True
-
 
 
 async def check_all_stock_async(tp_urls):
