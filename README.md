@@ -38,3 +38,9 @@ Build the container (note the `.` at the end of the command):
 ```bash
 docker build -t bxbrenden/costco-tp:<VERSION_TAG> .
 ```
+
+Upload to DockerHub:
+
+```bash
+docker push bxbrenden/costco-tp:<VERSION_TAG>
+```
