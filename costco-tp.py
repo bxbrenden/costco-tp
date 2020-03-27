@@ -36,7 +36,6 @@ def get_tp_urls(tp_file):
 def check_availability(costco_dict, timeout, id_name):
     costco_url = list(costco_dict.values())[0]
     item_name = list(costco_dict.keys())[0]
-    print(f'Searching for {item_name}. This will take upwards of 1 minute...')
 
     options = Options()
     options.add_argument('--headless')
