@@ -25,6 +25,20 @@ docker logs --follow <CONTAINER_ID>
 
 ### Example Output:
 
+```
+charmin-ultrasoft: Out of Stock
+windsoft: Out of Stock
+kirkland-signature: Out of Stock
+kleenex-tissue1: Out of Stock
+charmin-ultrastrong: Out of Stock
+quilted-northern: Out of Stock
+kleenex-TP: Out of Stock
+cottonelle: Out of Stock
+scott: Out of Stock
+kirkland-signature-ultrasoft: Out of Stock
+kleenex-tissue2: Out of Stock
+```
+
 
 ## Building
 Clone the source:
