@@ -60,7 +60,15 @@ kleenex-tissue2: Out of Stock
 ```
 
 
+## Contributing
+I don't accept PRs because this RAM hog of a container is just a toy project.
+Please open an issue if you have a suggestion.
+Otherwise, please feel free to fork this and modify as you see fit.
+
+
 ## Building
+This section is just a note to self.
+
 Clone the source:
 
 ```bash
