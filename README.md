@@ -12,6 +12,10 @@ This container is a python script that asynchronously checks all 11 of Costco's 
 It uses selenium webdriver to navigate to each page, set the zip code to the user's local one, waits for the page to refresh, and then reports back the stock status.
 This process takes about 1-2 minutes to complete.
 
+Note: this code is **not** intended for abusing Costco's web infrastructure or any other nefarious activity.
+Its only purpose is to automate the periodic process of checking their website for toilet paper stock.
+Damn you, COVID-19 TP hoarders!
+
 It uses a local file called `tp_urls.txt` which has the following format:
 
 ```
