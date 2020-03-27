@@ -63,6 +63,9 @@ kirkland-signature-ultrasoft: Out of Stock
 kleenex-tissue2: Out of Stock
 ```
 
+## Known Issues
+**OSX 10.14**: Running this on a 2017 MacBook Pro with OSX 10.14.6 results in a crashed Firefox process in the container, but the container itself remains alive and must be killed manually with `docker kill <CONTAINER_ID>`. Opening 11 selenium webdriver windows in parallel is apparently too much for it, as the `htop` output shows all 8 cores pegged at 98% - 100%.
+
 
 ## Contributing
 I don't accept PRs because this RAM hog of a container is just a toy project.
