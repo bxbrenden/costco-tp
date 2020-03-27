@@ -1,6 +1,7 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import logging
+import os
 import selenium
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -70,6 +71,7 @@ def check_cart_button(driver, timeout, item_name, id_name):
 
 
 def set_postal_code(driver, timeout, item_name):
+    POSTAL_CODE = os.environ.get('POSTAL_CODE', '97124')
     try:
         label = WebDriverWait(driver, timeout).until(
             EC.visibility_of_element_located((By.ID, 'delivery-postal-label'))
@@ -94,7 +96,7 @@ def set_postal_code(driver, timeout, item_name):
             else:
                 popover_inputs = popover.find_elements_by_tag_name('input')
                 try:
-                    popover_inputs[0].send_keys('97124')
+                    popover_inputs[0].send_keys(POSTAL_CODE)
                 except ElementNotInteractableException:
                     print('failed to type zipcode')
                 else:
